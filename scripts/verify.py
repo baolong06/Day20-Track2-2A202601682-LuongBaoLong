@@ -60,7 +60,8 @@ def tracked_files() -> set[str] | None:
         return None
     if out.returncode != 0:
         return None
-    return {line.strip() for line in out.stdout.splitlines() if line.strip()}
+    # Normalize to forward slashes for cross-platform consistency
+    return {line.strip().replace('\\', '/') for line in out.stdout.splitlines() if line.strip()}
 
 
 TRACKED = None  # populated in main()
@@ -71,7 +72,7 @@ def is_committed(path: pathlib.Path) -> bool | None:
     if TRACKED is None:
         return None
     try:
-        rel = str(path.resolve().relative_to(labkit.repo_root()))
+        rel = str(path.resolve().relative_to(labkit.repo_root())).replace('\\', '/')
     except ValueError:
         return None
     return rel in TRACKED
