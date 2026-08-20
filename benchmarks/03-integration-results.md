@@ -28,8 +28,21 @@ Dominant stage: **llm** (100% of total)
 > Splitting prefill and decode helps because prefill is compute-bound and decode is memory-bandwidth-bound.
 
 
-## Which N16-N19 pieces are real (required -- replace this line)
+## Which N16-N19 pieces are real
 
-_List each of N16, N17, N18, N19 as real or stubbed. Stubbing costs no points;
-misrepresenting it does. Then answer: is the dominant stage above what you expected?
-If you had to halve this pipeline's latency, which stage would you attack and why?_
+| Piece | Real or stub? | Reason |
+|-------|---------------|--------|
+| N16 Cloud/IaC | stub | Keyword overlap fallback - no real infrastructure |
+| N17 Data pipeline | stub | No real data pipeline |
+| N18 Lakehouse | stub | No real data lake |
+| N19 Vector + features | stub | Keyword overlap fallback for retrieval |
+
+**Is dominant stage (llm = 100%) what you expected?**
+Yes, LLM inference dominates because:
+1. Embedding/retrieval use keyword matching (fast, <1ms)
+2. LLM inference requires GPU compute (attention, FFN, dequantization)
+
+**To halve latency, attack LLM stage:**
+- Use smaller quantization (UD-Q2_K_XL or UD-Q3_K_XL)
+- Increase parallel slots for batch processing
+- Use speculative decoding (bonus C1 with MTP head)
