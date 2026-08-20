@@ -7,8 +7,8 @@ Completed requests: `UD-Q4_K_XL` 10/10 · `UD-Q2_K_XL` 10/10
 
 | Quantization | Size (GB) | Load (ms) | TTFT P50/P95 (ms) | TPOT P50/P95 (ms) | E2E P50/P95/P99 (ms) | Decode (tok/s) |
 |:--|--:|--:|--:|--:|--:|--:|
-| UD-Q4_K_XL | 2.97 | 5362 | 271 / 359 | 8.5 / 9.2 | 805 / 938 / 938 | 117.1 |
-| UD-Q2_K_XL | 2.24 | 5786 | 278 / 786 | 9.5 / 9.9 | 869 / 1410 / 1410 | 105.0 |
+| UD-Q4_K_XL | 2.97 | 4037 | 239 / 310 | 8.0 / 8.3 | 736 / 831 / 831 | 125.8 |
+| UD-Q2_K_XL | 2.24 | 5572 | 244 / 499 | 8.9 / 9.3 | 804 / 1073 / 1073 | 111.9 |
 
 - **TTFT** = prefill. Short prompts keep it small; long-context RAG is where it explodes.
 - **TPOT** = per-output-token decode cost, bounded by memory bandwidth. `decode tok/s = 1000 / TPOT_p50`.
