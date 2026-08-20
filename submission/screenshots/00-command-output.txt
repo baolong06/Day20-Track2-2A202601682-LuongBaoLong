@@ -1,0 +1,38 @@
+# DAY 20 - MINH CHUNG CHAY LENH
+
+## 01 - Hardware Probe
+```
+python labs/00-setup/detect-hardware.py
+```
+Ket qua: i9-10980HK, 16GB RAM, RTX 2070 Super, Gemma 4 E2B
+
+## 02 - Benchmark (TTFT, TPOT)
+```
+python labs/01-measure/benchmark.py
+```
+Ket qua: Q4_K_XL: TTFT=271ms, TPOT=8.5ms, decode=117 tok/s
+
+## 03 - Server + Smoke Test
+```
+# Terminal 1: Server
+python labs/02-serve/serve.py
+
+# Terminal 2: Smoke test
+python labs/02-serve/smoke-test.py
+```
+Ket qua: Server chay, smoke test PASS
+
+## 04 - Locust 10 Users
+```
+python -m locust -f labs/02-serve/load-test.py --headless -u 10 -r 5 -t 30s --host http://localhost:8080
+```
+Ket qua: 86 requests, 0 fails, avg=2438ms
+
+## 05 - Locust 50 Users
+```
+python -m locust -f labs/02-serve/load-test.py --headless -u 50 -r 25 -t 30s --host http://localhost:8080
+```
+Ket qua: 90 requests, 0 fails, avg=11506ms
+
+---
+Ngay: 2026-08-20
