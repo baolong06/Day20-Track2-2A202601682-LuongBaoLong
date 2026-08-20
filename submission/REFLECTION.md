@@ -9,9 +9,11 @@
 
 ## 1. Hardware & runtime  *(rubric 1, 2 — 10 diem)*
 
+> Tu `make probe`. Paste output hoac dien tay.
+
 - **OS:** Windows 10 (AMD64)
 - **CPU:** Intel(R) Core(TM) i9-10980HK CPU @ 2.40GHz
-- **Cores:** 8 physical · 16 logical
+- **Cores:** 8 physical / 16 logical
 - **CPU extensions:** AVX2
 - **RAM:** 15.8 GB
 - **Accelerator:** NVIDIA GeForce RTX 2070 Super, 8192 MiB (nvidia_cuda, vulkan)
@@ -22,30 +24,6 @@
 **Chay o dau:** laptop cua toi
 
 **Setup story:** May co RTX 2070 Super voi 8GB VRAM, nen llama.cpp tai CUDA build tu dong. Khong co loi gi can workaround - tat ca deu hoat dong binh thuong sau khi setup. Unicode encoding issue khi chay trong PowerShell da duoc fix bang cach dat PYTHONIOENCODING=utf-8.
-
----
-
-## 1. Hardware & runtime  *(rubric 1, 2 — 10 điểm)*
-
-> Từ `make probe`. Paste output hoặc điền tay.
-
-- **OS:** _<macOS 14 / Windows 11 / Ubuntu 24.04 / ...>_
-- **CPU:** _<Apple M2 / Intel i7-12700H / AMD Ryzen 7 5800H>_
-- **Cores:** _<physical / logical>_
-- **CPU extensions:** _<AVX2 / AVX-512 / NEON / —>_
-- **RAM:** _<GB>_
-- **Accelerator:** _<NVIDIA RTX 4060 / Apple Metal / Vulkan / CPU only>_
-- **llama.cpp asset đã tải:** _<vd: llama-b10488-bin-macos-arm64.tar.gz>_
-- **Model đã dùng:** _<Gemma 4 E2B / Qwen3.5 0.8B>_ (`LAB_MODEL=`_<gemma4-e2b / qwen35-0.8b>_)
-- **Quantization:** _<primary>_ + _<compare>_ (từ `models/active.json`)
-
-**Chạy ở đâu:** _<laptop của tôi / Colab / Kaggle>_
-_(Nếu dùng cloud fallback: nói rõ vì sao — RAM < 8 GB, setup fail, v.v. Không mất điểm.)_
-
-**Setup story** (≤ 80 chữ): điều gì cần thay đổi để lab chạy trên máy bạn? Có bước
-nào fail rồi phải workaround không?
-
-_Answer here._
 
 ---
 
